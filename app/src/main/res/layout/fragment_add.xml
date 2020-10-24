@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:id="@+id/titleEt"
+        android:id="@+id/updateTitleEt"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:ems="10"
@@ -17,39 +17,39 @@
         android:hint="@string/title"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/custom_input_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/prioritySpinner"
+        android:id="@+id/updatePrioritySpinner"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
         android:paddingStart="24dp"
         android:paddingEnd="20dp"
         android:entries="@array/Priorities"
-        android:background="@android:color/transparent"
+        android:background="@drawable/custom_input_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleEt" />
+        app:layout_constraintTop_toBottomOf="@+id/updateTitleEt" />
 
     <EditText
-        android:id="@+id/descriptionEt"
+        android:id="@+id/updateDescriptionEt"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:ems="10"
         android:layout_marginTop="8dp"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:background="@android:color/transparent"
         android:hint="@string/description"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:paddingTop="16dp"
+        android:background="@drawable/custom_input_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prioritySpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/updatePrioritySpinner" />
 </androidx.constraintlayout.widget.ConstraintLayout>
