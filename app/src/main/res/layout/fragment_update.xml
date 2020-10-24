@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    tools:context=".add.AddFragment">
+    tools:context=".update.UpdateFragment">
 
 
     <EditText
@@ -17,7 +17,7 @@
         android:hint="@string/title"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/custom_input_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,7 +30,7 @@
         android:paddingStart="24dp"
         android:paddingEnd="20dp"
         android:entries="@array/Priorities"
-        android:background="@android:color/transparent"
+        android:background="@drawable/custom_input_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updateTitleEt" />
@@ -43,7 +43,7 @@
         android:layout_marginTop="8dp"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:background="@android:color/transparent"
+        android:background="@drawable/custom_input_background"
         android:hint="@string/description"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
