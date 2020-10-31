@@ -1,6 +1,7 @@
 package com.example.todoapp.database
 
 import androidx.room.TypeConverter
+import com.example.todoapp.database.models.Priority
 
 class Converter {
 

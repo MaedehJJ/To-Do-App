@@ -1,4 +1,4 @@
-package com.example.todoapp.database
+package com.example.todoapp.database.models
 
 enum class Priority {
     High,

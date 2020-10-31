@@ -1,8 +1,9 @@
-package com.example.todoapp.database
+package com.example.todoapp.database.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.todoapp.database.models.Priority
 
 @Entity(tableName = "todo_table")
 data class ToDoData(

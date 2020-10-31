@@ -2,6 +2,7 @@ package com.example.todoapp.database
 
 import android.content.Context
 import androidx.room.*
+import com.example.todoapp.database.models.ToDoData
 
 @Database(entities = [ToDoData::class], version = 1, exportSchema = false)
 @TypeConverters(Converter::class)
