@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.*
 
 @Database(entities = [ToDoData::class], version = 1, exportSchema = false)
-//@TypeConverters(Converter::class)
+@TypeConverters(Converter::class)
 abstract class ToDoDatabase : RoomDatabase() {
     abstract fun toDoDao(): ToDoDao
 
