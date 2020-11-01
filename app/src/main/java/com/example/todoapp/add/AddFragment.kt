@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.todoapp.R
 import com.example.todoapp.database.models.Priority
 import com.example.todoapp.database.models.ToDoData
@@ -52,6 +53,12 @@ class AddFragment : Fragment() {
                 priority = parsePriority(mPriority)
             )
             mToDoViewModel?.insertData(newData)
+            Toast.makeText(
+                requireContext(),
+                "Successfully added!",
+                Toast.LENGTH_LONG
+            ).show()
+            findNavController().navigate(R.id.action_addFragment_to_listFragment)
 
         } else {
             Toast.makeText(
