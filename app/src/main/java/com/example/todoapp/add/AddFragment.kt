@@ -15,7 +15,7 @@ import androidx.fragment.app.viewModels as viewModels
 
 class AddFragment : Fragment() {
 
-    private val mToDoViewModel: ToDoViewModel? = null
+    private val mToDoViewModel: ToDoViewModel by viewModels()
 
 
     override fun onCreateView(
