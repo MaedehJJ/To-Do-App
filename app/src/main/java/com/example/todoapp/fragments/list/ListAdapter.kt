@@ -25,12 +25,15 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
         holder.itemView.descriptionTxt.text = dataList[position].description
 
         when (dataList[position].priority) {
-            Priority.High -> holder.itemView.priorityIndicator.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.red
+            Priority.High -> {
+                holder.itemView.priorityIndicator.setCardBackgroundColor(
+                    ContextCompat.getColor(
+                        holder.itemView.context,
+                        R.color.red
+                    )
+
                 )
-            )
+            }
             Priority.Medium -> holder.itemView.priorityIndicator.setCardBackgroundColor(
                 ContextCompat.getColor(
                     holder.itemView.context,
