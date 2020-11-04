@@ -13,20 +13,18 @@ import kotlinx.android.synthetic.main.row_list.view.*
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     var dataList = ArrayList<ToDoData>()
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.row_list, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ListAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.titleTxt.text = dataList[position].title
         holder.itemView.descriptionTxt.text = dataList[position].description
-        val priority = dataList[position].priority
-        when (priority) {
+
+        when (dataList[position].priority) {
             Priority.High -> holder.itemView.priorityIndicator.setCardBackgroundColor(
                 ContextCompat.getColor(
                     holder.itemView.context,
