@@ -6,11 +6,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.todoapp.R
-import com.example.todoapp.database.models.Priority
 import com.example.todoapp.database.models.ToDoData
 import com.example.todoapp.database.viewmodel.ToDoViewModel
 import com.example.todoapp.fragments.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
+import kotlinx.android.synthetic.main.fragment_add.view.*
 import androidx.fragment.app.viewModels as viewModels
 
 
@@ -26,6 +26,7 @@ class AddFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add, container, false)
+        // view.addPrioritySpinner.l
         setHasOptionsMenu(true)
         return view
     }
