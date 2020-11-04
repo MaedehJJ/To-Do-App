@@ -26,7 +26,7 @@ class AddFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add, container, false)
-        // view.addPrioritySpinner.l
+        view.addPrioritySpinner.onItemSelectedListener = mSharedViewModel.listener
         setHasOptionsMenu(true)
         return view
     }
