@@ -27,7 +27,9 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
         holder.itemView.titleTxt.text = dataList[position].title
         holder.itemView.descriptionTxt.text = dataList[position].description
         holder.itemView.rowBackground.setOnClickListener {
-            holder.itemView.findNavController().navigate(R.id.action_listFragment_to_addFragment)
+            val action =
+                ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem = dataList[position])
+            holder.itemView.findNavController().navigate(action)
         }
 
         when (dataList[position].priority) {
