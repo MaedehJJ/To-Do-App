@@ -4,6 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.R
 import com.example.todoapp.database.models.Priority
@@ -23,6 +26,9 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.titleTxt.text = dataList[position].title
         holder.itemView.descriptionTxt.text = dataList[position].description
+        holder.itemView.rowBackground.setOnClickListener {
+            holder.itemView.findNavController().navigate(R.id.action_listFragment_to_addFragment)
+        }
 
         when (dataList[position].priority) {
             Priority.High -> {
