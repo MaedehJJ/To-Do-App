@@ -11,12 +11,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todoapp.R
 import com.example.todoapp.database.viewmodel.ToDoViewModel
+import com.example.todoapp.fragments.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 
 class ListFragment : Fragment() {
     private val adapter: ListAdapter by lazy { ListAdapter() }
     private val mToDoViewModel: ToDoViewModel by viewModels()
+    private val mSharedViewModel: SharedViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +31,11 @@ class ListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
 
         mToDoViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
+            mSharedViewModel.checkIfDatabaseEmpty(data)
             adapter.setData(data)
+        })
+        mSharedViewModel.emptyDatabase.observe(viewLifecycleOwner, Observer {
+            showEmptyDatabase(it)
         })
 
         view.floatingActionButton.setOnClickListener {
@@ -38,6 +44,16 @@ class ListFragment : Fragment() {
 
         setHasOptionsMenu(true)
         return view
+    }
+
+    private fun showEmptyDatabase(emptyDatabase: Boolean) {
+        if (emptyDatabase) {
+            view?.NotDataImageView?.visibility = View.VISIBLE
+            view?.noDataTextView?.visibility = View.VISIBLE
+        } else {
+            view?.NotDataImageView?.visibility = View.INVISIBLE
+            view?.noDataTextView?.visibility = View.INVISIBLE
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -58,7 +74,7 @@ class ListFragment : Fragment() {
             Toast.makeText(requireContext(), "Successfully Deleted!!", Toast.LENGTH_LONG).show()
         }
         builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete everything?")
+        builder.setTitle("Delete everyt hing?")
         builder.setMessage("Are you sure you want to delete everything?")
         builder.create().show()
     }
