@@ -21,7 +21,7 @@ class UpdateFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_update, container, false)
         view.titleTxt.text = args.currentItem.title
         view.descriptionTxt.text = args.currentItem.description
-        view.updatePrioritySpinner.setSelection(parsePriority(args.currentItem.priority))
+        view.updatePrioritySpinner.setSelection(mSharedViewModel.parsePriorityToInt(args.currentItem.priority))
         view.updatePrioritySpinner.onItemSelectedListener = mSharedViewModel.listener
         setHasOptionsMenu(true)
         return view
@@ -31,12 +31,5 @@ class UpdateFragment : Fragment() {
         inflater.inflate(R.menu.update_fragment_menu, menu)
     }
 
-    private fun parsePriority(priority: Priority): Int {
-        return when (priority) {
-            Priority.High -> 0
-            Priority.Medium -> 1
-            Priority.Low -> 2
-        }
-    }
 
 }
