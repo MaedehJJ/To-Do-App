@@ -33,7 +33,7 @@
         android:background="@drawable/custom_input_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addTitleEt" />
+        app:layout_constraintTop_toBottomOf="@+id/updateTitleEt" />
 
     <EditText
         android:id="@+id/updateDescriptionEt"
@@ -43,13 +43,13 @@
         android:layout_marginTop="8dp"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        android:background="@drawable/custom_input_background"
         android:hint="@string/description"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         android:paddingTop="16dp"
+        android:background="@drawable/custom_input_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPrioritySpinner" />
+        app:layout_constraintTop_toBottomOf="@+id/updatePrioritySpinner" />
 </androidx.constraintlayout.widget.ConstraintLayout>
