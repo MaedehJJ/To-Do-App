@@ -74,7 +74,7 @@ class ListFragment : Fragment() {
             Toast.makeText(requireContext(), "Successfully Deleted!!", Toast.LENGTH_LONG).show()
         }
         builder.setNegativeButton("No") { _, _ -> }
-        builder.setTitle("Delete everyt hing?")
+        builder.setTitle("Delete everything?")
         builder.setMessage("Are you sure you want to delete everything?")
         builder.create().show()
     }

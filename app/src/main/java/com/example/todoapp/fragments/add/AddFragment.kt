@@ -11,6 +11,7 @@ import com.example.todoapp.database.viewmodel.ToDoViewModel
 import com.example.todoapp.fragments.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
+import kotlinx.android.synthetic.main.fragment_update.*
 import androidx.fragment.app.viewModels as viewModels
 
 

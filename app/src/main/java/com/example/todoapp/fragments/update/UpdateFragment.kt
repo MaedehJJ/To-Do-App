@@ -9,13 +9,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.todoapp.R
-import com.example.todoapp.database.models.Priority
 import com.example.todoapp.database.models.ToDoData
 import com.example.todoapp.database.viewmodel.ToDoViewModel
 import com.example.todoapp.fragments.SharedViewModel
+import kotlinx.android.synthetic.main.fragment_add.*
+import kotlinx.android.synthetic.main.fragment_add.view.*
 import kotlinx.android.synthetic.main.fragment_update.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
-import kotlinx.android.synthetic.main.row_list.view.*
 
 class UpdateFragment : Fragment() {
     private val args by navArgs<UpdateFragmentArgs>()
@@ -26,8 +26,8 @@ class UpdateFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_update, container, false)
-        view.titleTxt.text = args.currentItem.title
-        view.descriptionTxt.text = args.currentItem.description
+        view.updateTitleEt.setText(args.currentItem.title)
+        view.updateDescriptionEt.setText(args.currentItem.description)
         view.updatePrioritySpinner.setSelection(mSharedViewModel.parsePriorityToInt(args.currentItem.priority))
         view.updatePrioritySpinner.onItemSelectedListener = mSharedViewModel.listener
         setHasOptionsMenu(true)
