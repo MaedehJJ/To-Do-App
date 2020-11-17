@@ -14,6 +14,8 @@
     <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="no_data_image">No Data Image</string>
+    <string name="description">Description</string>
+    <string name="my_title">My Title</string>
 
     <string-array name="Priorities">
         <item>High Priority</item>

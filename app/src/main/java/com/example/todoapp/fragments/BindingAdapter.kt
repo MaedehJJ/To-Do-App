@@ -1,7 +1,10 @@
 package com.example.todoapp.fragments
 
+import android.os.Build
 import android.view.View
 import android.widget.Spinner
+import androidx.annotation.RequiresApi
+import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
@@ -47,6 +50,24 @@ class BindingAdapter {
                     view.setSelection(2)
                 }
             }
+        }
+
+        @RequiresApi(Build.VERSION_CODES.M)
+        @BindingAdapter("android:parsePriorityColor")
+        @JvmStatic
+        fun parsePriorityColor(cardView: CardView, priority: Priority) {
+            when (priority) {
+                Priority.High -> {
+                    cardView.setCardBackgroundColor(cardView.context.getColor(R.color.red))
+                }
+                Priority.Medium -> {
+                    cardView.setCardBackgroundColor(cardView.context.getColor(R.color.yellow))
+                }
+                Priority.Low -> {
+                    cardView.setCardBackgroundColor(cardView.context.getColor(R.color.green))
+                }
+            }
+
         }
     }
 }
