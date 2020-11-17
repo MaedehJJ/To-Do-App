@@ -1,21 +1,13 @@
-package com.example.todoapp.fragments.list
+package com.example.todoapp.fragments.list.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todoapp.R
-import com.example.todoapp.database.models.Priority
 import com.example.todoapp.database.models.ToDoData
 import com.example.todoapp.databinding.RowListBinding
-import kotlinx.android.synthetic.main.row_list.view.*
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
-    private var dataList = ArrayList<ToDoData>()
+    var dataList = ArrayList<ToDoData>()
 
     class ViewHolder(private var binding: RowListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(toDoData: ToDoData) {
