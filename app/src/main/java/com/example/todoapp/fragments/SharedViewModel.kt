@@ -18,6 +18,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     val listener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        override fun onNothingSelected(p0: AdapterView<*>?) {}
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             when (position) {
                 0 -> {
@@ -47,13 +48,10 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
             }
         }
 
-        override fun onNothingSelected(parent: AdapterView<*>?) {
-        }
-
     }
 
     fun verifyDataFromUser(title: String, description: String): Boolean {
-        return title.isNotEmpty() && description.isNotEmpty()
+        return !(title.isEmpty() || description.isEmpty())
     }
 
     fun parsePriority(priority: String): Priority {

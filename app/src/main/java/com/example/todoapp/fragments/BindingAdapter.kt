@@ -1,5 +1,6 @@
 package com.example.todoapp.fragments
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.view.View
 import android.widget.Spinner
@@ -14,6 +15,7 @@ import com.example.todoapp.database.models.Priority
 import com.example.todoapp.database.models.ToDoData
 import com.example.todoapp.fragments.list.ListFragmentDirections
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.text.DateFormat.MEDIUM
 import java.util.*
 
 class BindingAdapter {
@@ -55,7 +57,7 @@ class BindingAdapter {
             }
         }
 
-        @RequiresApi(Build.VERSION_CODES.M)
+
         @BindingAdapter("android:parsePriorityColor")
         @JvmStatic
         fun parsePriorityColor(cardView: CardView, priority: Priority) {
