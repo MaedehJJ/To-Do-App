@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.todoapp.R
 import com.example.todoapp.database.models.ToDoData
 import com.example.todoapp.database.viewmodel.ToDoViewModel
+import com.example.todoapp.databinding.FragmentUpdateBinding
 import com.example.todoapp.fragments.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
@@ -21,17 +22,17 @@ class UpdateFragment : Fragment() {
     private val args by navArgs<UpdateFragmentArgs>()
     private val mSharedViewModel: SharedViewModel by viewModels()
     private val mToDoViewModel: ToDoViewModel by viewModels()
+    private var _binding: FragmentUpdateBinding? = null
+    private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_update, container, false)
-        view.updateTitleEt.setText(args.currentItem.title)
-        view.updateDescriptionEt.setText(args.currentItem.description)
-        view.updatePrioritySpinner.setSelection(mSharedViewModel.parsePriorityToInt(args.currentItem.priority))
-        view.updatePrioritySpinner.onItemSelectedListener = mSharedViewModel.listener
+        _binding = FragmentUpdateBinding.inflate(inflater, container, false)
+        binding.args = args
+        binding.updatePrioritySpinner.onItemSelectedListener = mSharedViewModel.listener
         setHasOptionsMenu(true)
-        return view
+        return binding.root
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -80,6 +81,11 @@ class UpdateFragment : Fragment() {
         } else {
             Toast.makeText(requireContext(), "Please fill out EveryThing", Toast.LENGTH_LONG).show()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 
