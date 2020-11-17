@@ -76,6 +76,7 @@ class ListFragment : Fragment() {
             mToDoViewModel.insertData(deletedItem)
             adapter.notifyItemChanged(position)
         }
+        snackbar.show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
