@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="mSharedViewModel"
+            type="com.example.todoapp.fragments.SharedViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,6 +51,7 @@
             android:layout_height="100dp"
             android:src="@drawable/ic_no_data"
             android:visibility="invisible"
+            android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +64,7 @@
             android:textSize="16sp"
             android:visibility="invisible"
             android:alpha="0.5"
+            android:emptyDatabase="@{mSharedViewModel.emptyDatabase}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

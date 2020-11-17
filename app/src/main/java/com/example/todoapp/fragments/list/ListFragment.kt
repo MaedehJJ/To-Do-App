@@ -28,14 +28,13 @@ class ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentListBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+        binding.mSharedViewModel = mSharedViewModel
 
         setUpRecyclerView()
         mToDoViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
             mSharedViewModel.checkIfDatabaseEmpty(data)
             adapter.setData(data)
-        })
-        mSharedViewModel.emptyDatabase.observe(viewLifecycleOwner, Observer {
-            showEmptyDatabase(it)
         })
 
         setHasOptionsMenu(true)
@@ -46,16 +45,6 @@ class ListFragment : Fragment() {
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
-    }
-
-    private fun showEmptyDatabase(emptyDatabase: Boolean) {
-        if (emptyDatabase) {
-            view?.NotDataImageView?.visibility = View.VISIBLE
-            view?.noDataTextView?.visibility = View.VISIBLE
-        } else {
-            view?.NotDataImageView?.visibility = View.INVISIBLE
-            view?.noDataTextView?.visibility = View.INVISIBLE
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
