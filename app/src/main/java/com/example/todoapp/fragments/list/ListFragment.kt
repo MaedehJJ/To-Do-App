@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todoapp.R
 import com.example.todoapp.database.viewmodel.ToDoViewModel
+import com.example.todoapp.databinding.FragmentListBinding
 import com.example.todoapp.fragments.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
@@ -19,17 +20,16 @@ class ListFragment : Fragment() {
     private val adapter: ListAdapter by lazy { ListAdapter() }
     private val mToDoViewModel: ToDoViewModel by viewModels()
     private val mSharedViewModel: SharedViewModel by viewModels()
+    private var _binding: FragmentListBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_list, container, false)
+        _binding = FragmentListBinding.inflate(inflater, container, false)
 
-        var recyclerView = view.recyclerView
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
-
+        setUpRecyclerView()
         mToDoViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
             mSharedViewModel.checkIfDatabaseEmpty(data)
             adapter.setData(data)
@@ -39,7 +39,13 @@ class ListFragment : Fragment() {
         })
 
         setHasOptionsMenu(true)
-        return view
+        return binding.root
+    }
+
+    private fun setUpRecyclerView() {
+        val recyclerView = binding.recyclerView
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
     }
 
     private fun showEmptyDatabase(emptyDatabase: Boolean) {
@@ -73,6 +79,11 @@ class ListFragment : Fragment() {
         builder.setTitle("Delete everything?")
         builder.setMessage("Are you sure you want to delete everything?")
         builder.create().show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
