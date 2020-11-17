@@ -55,7 +55,7 @@ class ListFragment : Fragment() {
     }
 
     private fun swipeToDelete(recyclerView: RecyclerView) {
-        val swipeToDeleteCallBack = object : SwipeToDelete() {
+        val swipeToDeleteCallBack = object : SwipeToDelete(requireContext()) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val deletedItem = adapter.dataList[viewHolder.adapterPosition]
                 mToDoViewModel.deleteItem(deletedItem)
