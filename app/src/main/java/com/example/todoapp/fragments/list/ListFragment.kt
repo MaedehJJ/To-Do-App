@@ -13,6 +13,7 @@ import com.example.todoapp.R
 import com.example.todoapp.database.viewmodel.ToDoViewModel
 import com.example.todoapp.databinding.FragmentListBinding
 import com.example.todoapp.fragments.SharedViewModel
+import com.example.todoapp.utils.hideKeyBoard
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 
@@ -38,6 +39,7 @@ class ListFragment : Fragment() {
         })
 
         setHasOptionsMenu(true)
+        hideKeyBoard(requireActivity())
         return binding.root
     }
 
