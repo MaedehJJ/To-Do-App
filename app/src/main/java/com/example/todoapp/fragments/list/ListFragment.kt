@@ -38,10 +38,6 @@ class ListFragment : Fragment() {
             showEmptyDatabase(it)
         })
 
-        view.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_addFragment)
-        }
-
         setHasOptionsMenu(true)
         return view
     }

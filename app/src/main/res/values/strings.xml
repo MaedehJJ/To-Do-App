@@ -13,6 +13,7 @@
     <string name="add">Add</string>
     <string name="save">Save</string>
     <string name="delete">Delete</string>
+    <string name="no_data_image">No Data Image</string>
 
     <string-array name="Priorities">
         <item>High Priority</item>
