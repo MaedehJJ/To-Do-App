@@ -77,9 +77,8 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private fun restoreDeletedData(view: View, deletedItem: ToDoData, position: Int) {
         val snackbar = Snackbar.make(view, "Deleted '${deletedItem.title}'", Snackbar.LENGTH_LONG)
-        snackbar.setAction("UNDO") {
+        snackbar.setAction("Undo") {
             mToDoViewModel.insertData(deletedItem)
-            adapter.notifyItemChanged(position)
         }
         snackbar.show()
     }
