@@ -19,6 +19,8 @@ import com.example.todoapp.fragments.list.adapter.ListAdapter
 import com.example.todoapp.fragments.list.adapter.SwipeToDelete
 import com.example.todoapp.utils.hideKeyBoard
 import com.google.android.material.snackbar.Snackbar
+import jp.wasabeef.recyclerview.animators.FadeInUpAnimator
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 
 class ListFragment : Fragment() {
@@ -51,6 +53,10 @@ class ListFragment : Fragment() {
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        recyclerView.itemAnimator = FadeInUpAnimator().apply {
+            addDuration = 600
+            removeDuration = 100
+        }
         swipeToDelete(recyclerView)
     }
 
