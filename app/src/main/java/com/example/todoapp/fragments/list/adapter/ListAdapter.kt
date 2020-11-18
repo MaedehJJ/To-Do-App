@@ -2,6 +2,7 @@ package com.example.todoapp.fragments.list.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.database.models.ToDoData
 import com.example.todoapp.databinding.RowListBinding
@@ -39,8 +40,11 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
     }
 
     fun setData(toDoData: List<ToDoData>) {
+        val toDoDiffUtil = ToDoDiffUtil(dataList, toDoData)
+        val toDoDiffResult = DiffUtil.calculateDiff(toDoDiffUtil)
         this.dataList = toDoData as ArrayList
-        this.notifyDataSetChanged()
+        toDoDiffResult.dispatchUpdatesTo(this)
+
     }
 
 }
