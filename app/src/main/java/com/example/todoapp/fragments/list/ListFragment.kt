@@ -56,7 +56,6 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
         recyclerView.itemAnimator = FadeInUpAnimator().apply {
             addDuration = 600
-            removeDuration = 100
         }
         swipeToDelete(recyclerView)
     }
